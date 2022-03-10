@@ -1,0 +1,14 @@
+.event-item {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #161616;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.event-item .name {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}

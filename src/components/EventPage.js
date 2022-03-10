@@ -1,19 +1,29 @@
-import { useState, useEffect } from "react";
-import { getEvent } from "../services/services";
-import { useParams } from "react-router-dom";
+import "../css/EventPage.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const EventPage = () => { 
-    const { id } = useParams();
-    const [event, setEvent] = useState({});
-
-    useEffect(() => {
-        getEvent(id).then((event) => {
-            setEvent(event.events[0]);
-        })
-    }, [])
+    const navigate = useNavigate();
+    const location = useLocation();
 
     return (
-        <div>{event.name}</div>
+        <div className="event-page">
+            <button onClick={() => navigate(-1)}>Back</button>
+            <h1>{location.state.name}</h1>
+            <div className="descr">
+                <div>
+                    <span className="bold">Type:</span>
+                    <span>{location.state.type.split("_").join(" ")}</span>
+                </div>
+                <div>
+                    <span className="bold">State:</span>
+                    <span>{location.state.state}</span>
+                </div>
+                <div>
+                    <span className="bold">Start date:</span>
+                    <span>{Date(location.state.start_datetime)}</span>
+                </div>
+            </div>
+        </div>
     )
 }
 

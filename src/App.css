@@ -1,0 +1,30 @@
+.app {
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+.app a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.app a:visited {
+    color: white;
+}
+
+.app .error {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: .7rem;
+    color: #505050;
+    text-transform: uppercase;
+}
+
+@media (min-width: 800px) {
+    .app {
+        width: 50%;
+    }
+}
