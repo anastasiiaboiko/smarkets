@@ -1,27 +1,66 @@
 import "../css/EventItem.css";
+import { Clock } from "react-feather";
+import { useNavigate } from "react-router-dom";
 
-const getRemainingTime = (datetime) => {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const unixTime = Date.parse(datetime);
-    const date = new Date(datetime);
-    const hoursLeft = Math.floor((unixTime - Date.now())/1000/60/60);
+const getRemainingTime = (state, datetime) => {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const unixTime = Date.parse(datetime);
+  const date = new Date(datetime);
+  const hoursLeft = Math.floor((unixTime - Date.now()) / 1000 / 60 / 60);
 
-    if (hoursLeft >= 24) {
+  switch (state) {
+    case "live":
+      return "Live";
+    case "ended":
+      return "Ended";
+    default:
+      if (hoursLeft >= 24) {
         return `${days[date.getDay()]}`;
-    } else if (hoursLeft < 1) {
-        return `In ${Math.floor((unixTime - Date.now())/1000/60)} minutes`;
-    }
+      } else if (hoursLeft < 1) {
+        return `In ${Math.floor((unixTime - Date.now()) / 1000 / 60)} minutes`;
+      }
 
-    return `In ${hoursLeft} hours`
-}
+      return `In ${hoursLeft} hours`;
+  }
+};
 
-const EventItem = ({ eventItem }) => {
-    return (
-        <div className="event-item">
-            <div className="name">{eventItem.name}</div>
-            <div className="start-date">{getRemainingTime(eventItem.start_datetime)}</div>
+const EventItem = ({ event }) => {
+  const navigate = useNavigate();
+
+  const toEventPage = (e, event) => {
+    e.preventDefault();
+    navigate(`/event/${event.id}`, { state: event });
+  };
+
+  return (
+    <a
+      href="#"
+      onClick={(e) => {
+        toEventPage(e, event.events[0]);
+      }}
+    >
+      <div className="event-item">
+        <div className="name">{event.events[0].name}</div>
+        <div className="start-date">
+          <Clock />
+          <span>
+            {getRemainingTime(
+              event.events[0].state,
+              event.events[0].start_datetime
+            )}
+          </span>
         </div>
-    )
-}
+      </div>
+    </a>
+  );
+};
 
 export default EventItem;

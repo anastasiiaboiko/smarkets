@@ -5,10 +5,26 @@
     background-color: #161616;
     margin-bottom: 1rem;
     padding: .5rem;
+    border: 1px solid transparent;
     border-radius: 5px;
+}
+
+.event-item:hover {
+    background-color: #2a2a2a;
 }
 
 .event-item .name {
     font-weight: bold;
     margin-bottom: 1rem;
+}
+
+.event-item .start-date {
+    display: flex;
+    align-items: center;
+}
+
+.event-item .start-date svg {
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
 }
