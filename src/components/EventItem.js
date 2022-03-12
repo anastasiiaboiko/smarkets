@@ -17,11 +17,7 @@ const getRemainingTime = (state, datetime) => {
   const hoursLeft = Math.floor((unixTime - Date.now()) / 1000 / 60 / 60);
 
   switch (state) {
-    case "live":
-      return "Live";
-    case "ended":
-      return "Ended";
-    default:
+    case "upcoming":
       if (hoursLeft >= 24) {
         return `${days[date.getDay()]}`;
       } else if (hoursLeft < 1) {
@@ -29,6 +25,8 @@ const getRemainingTime = (state, datetime) => {
       }
 
       return `In ${hoursLeft} hours`;
+    default:
+      return `${state}`;
   }
 };
 
