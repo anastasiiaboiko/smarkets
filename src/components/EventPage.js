@@ -1,4 +1,5 @@
 import "../css/EventPage.css";
+import { convertDate, convertTime } from "../utils/DateUtils";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 
@@ -24,7 +25,11 @@ const EventPage = () => {
         </div>
         <div>
           <span className="bold">Start date:</span>
-          <span>{Date(location.state.start_datetime)}</span>
+          <span>{convertDate(location.state.start_datetime)}</span>
+        </div>
+        <div>
+          <span className="bold">Start time:</span>
+          <span>{convertTime(location.state.start_datetime)}</span>
         </div>
       </div>
     </div>
