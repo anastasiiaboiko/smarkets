@@ -1,10 +1,14 @@
-export const getPopularEvents = async () => {
-  const popularEvents = await fetch(
+export const getPopularEventIds = async () => {
+  const popularEventIds = await fetch(
     "https://cors-anywhere.herokuapp.com/https://api.smarkets.com/v3/popular/event_ids/sport/football/"
   );
-  const popularEventIds = await popularEvents.json();
+
+  return popularEventIds.json();
+};
+
+export const getEvents = async (popularEventIds) => {
   const events = await Promise.all(
-    popularEventIds.popular_event_ids.map((id) =>
+    popularEventIds.map((id) =>
       fetch(
         `https://cors-anywhere.herokuapp.com/https://api.smarkets.com/v3/events/${id}/`
       )

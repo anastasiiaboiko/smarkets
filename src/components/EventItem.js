@@ -1,6 +1,6 @@
 import "../css/EventItem.css";
 import { Clock } from "react-feather";
-import { getRemainingTime } from "../utils/DateUtils";
+import { getRemainingTime } from "../utils/dateUtils";
 import { useNavigate } from "react-router-dom";
 
 const EventItem = ({ event }) => {

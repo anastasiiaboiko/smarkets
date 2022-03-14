@@ -1,5 +1,5 @@
 import "../css/EventPage.css";
-import { convertDate, convertTime } from "../utils/DateUtils";
+import { convertDate, convertTime } from "../utils/dateUtils";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 

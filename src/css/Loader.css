@@ -11,7 +11,7 @@
 .loading .spinner {
     border: .2rem solid #505050;
     border-radius: 50%;
-    border-top: .2rem solid #fb2471;
+    border-top: .2rem solid #01af73;
     width: 1.7rem;
     height: 1.7rem;
     -webkit-animation: spin 2s linear infinite;

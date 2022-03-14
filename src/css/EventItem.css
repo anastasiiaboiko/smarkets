@@ -5,8 +5,7 @@
     background-color: #161616;
     margin-bottom: 1rem;
     padding: .5rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
+    border-radius: .2rem;
 }
 
 .event-item:hover {
@@ -24,11 +23,14 @@
 }
 
 .event-item .start-date span {
-    text-transform: capitalize;
+    color: #a1a1a1;
+    font-size: .7rem;
+    text-transform: uppercase;
 }
 
 .event-item .start-date svg {
-    width: 1rem;
-    height: 1rem;
+    color: #a1a1a1;
+    width: .8rem;
+    height: .8rem;
     margin-right: .5rem;
 }

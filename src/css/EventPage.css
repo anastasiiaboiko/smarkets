@@ -6,22 +6,27 @@
 .event-page button {
     display: flex;
     align-items: center;
-    background-color: transparent;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
     color: white;
     border: none;
-    text-decoration: underline;
     margin-top: 1rem;
-    font-size: 1rem;
-    padding: 0;
+    font-size: .7rem;
+    padding: .3rem;
+    text-transform: uppercase;
+    border-radius: .2rem;
+    min-width: 5rem;
 }
 
 .event-page button:hover {
     cursor: pointer;
+    background-color: #535353;
 }
 
 .event-page button svg {
-    width: 1rem;
-    height: 1rem;
+    width: .8rem;
+    height: .8rem;
     margin-right: .5rem;
 }
 
@@ -33,6 +38,7 @@
 .event-page .descr .bold {
     font-weight: bold;
     margin-right: .3rem;
+    color: #a1a1a1;
 }
 
 @media (min-width: 800px) {

@@ -21,6 +21,8 @@ const months = [
   "November",
   "December",
 ];
+
+// Nicely format RFC 3339 datetimes
 export const convertDate = (datetime) => {
   const date = new Date(datetime);
 
@@ -37,17 +39,21 @@ export const convertTime = (datetime) => {
   ).slice(-2)}`;
 };
 
+// Calculate remaining time from now to the start of an event
 export const getRemainingTime = (state, datetime) => {
   const unixTime = Date.parse(datetime);
   const date = new Date(datetime);
   const hoursLeft = Math.floor((unixTime - Date.now()) / 1000 / 60 / 60);
 
+  // If state is "upcoming", calculate the time. Otherwise return state
   switch (state) {
     case "upcoming":
       if (hoursLeft >= 24) {
         return `${days[date.getDay()]}`;
-      } else if (hoursLeft < 1) {
+      } else if (hoursLeft < 1 && hoursLeft >= 0) {
         return `In ${Math.floor((unixTime - Date.now()) / 1000 / 60)} minutes`;
+      } else if (hoursLeft < 0) {
+        return "Live";
       }
 
       return `In ${hoursLeft} hours`;
