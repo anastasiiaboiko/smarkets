@@ -44,4 +44,8 @@ By running `npm test` all components are being tested for correcting rendering.
 
 ## Screenshots
 
+1. Homepage (popular events)
+2. Event details page
+<img src="https://user-images.githubusercontent.com/9774977/158305566-f226f792-34a6-4ce9-aaf7-04a6949dbb3e.png" width=500/>
+<img src="https://user-images.githubusercontent.com/9774977/158305568-998fb76b-4a0e-4f42-97d9-b5f48318c1ba.png" width=500/>
 
